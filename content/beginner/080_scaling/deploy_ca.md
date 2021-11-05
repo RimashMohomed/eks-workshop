@@ -66,6 +66,7 @@ Enabling IAM roles for service accounts on your cluster
 
 ```bash
 eksctl utils associate-iam-oidc-provider \
+    --region us-east-2 \
     --cluster eksworkshop-eksctl \
     --approve
 ```
@@ -73,7 +74,7 @@ eksctl utils associate-iam-oidc-provider \
 Creating an IAM policy for your service account that will allow your CA pod to interact with the autoscaling groups.
 
 ```bash
-mkdir ~/environment/cluster-autoscaler
+mkdir -p ~/environment/cluster-autoscaler
 
 cat <<EoF > ~/environment/cluster-autoscaler/k8s-asg-policy.json
 {
